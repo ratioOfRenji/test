@@ -21,6 +21,16 @@ namespace Gameplay.Spaceships
         private UnitBattleIdentity _battleIdentity;
 
 
+        private score _score;
+
+        private HealthBar _healthBar;
+
+        [SerializeField]
+        private float hp;
+
+       
+        
+
         public MovementSystem MovementSystem => _movementSystem;
         public WeaponSystem WeaponSystem => _weaponSystem;
 
@@ -30,11 +40,31 @@ namespace Gameplay.Spaceships
         {
             _shipController.Init(this);
             _weaponSystem.Init(_battleIdentity);
+           _score = GameObject.FindGameObjectWithTag("ScorePannel").GetComponent<score>();
+            _healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         }
 
+        //private void OnEnable()
+        //{
+        //   
+        //}
         public void ApplyDamage(IDamageDealer damageDealer)
         {
-            Destroy(gameObject);
+            hp -= damageDealer.Damage;
+            if (_battleIdentity == UnitBattleIdentity.Ally)
+            {
+                _healthBar.minusHeart();
+            }
+
+            if (hp<= 0)
+            { 
+                if(_battleIdentity == UnitBattleIdentity.Enemy)
+                {
+                 _score.addScore();
+                }
+                Destroy(gameObject);
+            }
+           
         }
 
     }

@@ -8,6 +8,7 @@ namespace Gameplay.Weapons
         UnitBattleIdentity BattleIdentity { get; }
 
         void ApplyDamage(IDamageDealer damageDealer);
+        
 
     }
 
