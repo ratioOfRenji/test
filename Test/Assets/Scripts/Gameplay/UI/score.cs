@@ -8,7 +8,9 @@ public class score : MonoBehaviour
 {
     private int scores;
     [SerializeField]
-    public TMP_Text _text;
+    private TMP_Text _text;
+    [SerializeField]
+    private TMP_Text _textOnPanel;
 
     public  void addScore()
     {
@@ -20,5 +22,6 @@ public class score : MonoBehaviour
     {
         string i = scores.ToString();
         _text.text = "score: " +i;
+        _textOnPanel.text = "score: " + i;
     }
 }
