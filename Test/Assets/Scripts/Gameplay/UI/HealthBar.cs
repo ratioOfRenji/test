@@ -14,17 +14,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Sprite empty;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   //убирает одно сердце на UI, начиная справа
     public void minusHeart()
     {
         for (int i = hearts.Length-1; i >= 0; i--)
@@ -35,6 +25,19 @@ public class HealthBar : MonoBehaviour
                break;
             }
            
+        }
+    }
+    // добавляет одно сердце на UI, начиная слева
+    public void plusHeart()
+    {
+        for (int i =  0; i <hearts.Length; i++)
+        {
+            if (hearts[i].sprite == empty)
+            {
+                hearts[i].sprite = full;
+                break;
+            }
+
         }
     }
 }

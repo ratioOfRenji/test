@@ -10,6 +10,7 @@ namespace Gameplay.ShipControllers.CustomControllers
         private SpriteRenderer _representation;
         protected override void ProcessHandling(MovementSystem movementSystem)
         {
+            //обнуление скорости, если корабль достиг ограничвающей позиции
             float direction;
             direction = Input.GetAxis("Horizontal");
             if (transform.position.x > GameAreaHelper.rightBound(transform, _representation.bounds))

@@ -14,11 +14,7 @@ namespace Gameplay.Helpers
 
         }
 
-        //public static float camHalfHeight = _camera.orthographicSize;
-        //public static float camHalfWidth = camHalfHeight * _camera.aspect;
-        //public static Vector3 camPos = _camera.transform.position;
-        //public static float leftBound = camPos.x - camHalfWidth;
-        //public static float rightBound = camPos.x + camHalfWidth;
+        
         public static bool IsInGameplayArea(Transform objectTransform, Bounds objectBounds)
         {
             var camHalfHeight = _camera.orthographicSize;
@@ -37,7 +33,7 @@ namespace Gameplay.Helpers
                 && (objectPos.y + objectBounds.extents.y > bottomBound);
 
         }
-
+        // крайняя правая точка, до которой сможет дойти игрок
         public static float rightBound(Transform objectTransform, Bounds objectBounds)
         {
             var camHalfHeight = _camera.orthographicSize;
@@ -53,6 +49,7 @@ namespace Gameplay.Helpers
 
            
         }
+        // крайняя левая точка, до которой сможет дойти игрок
         public static float leftBound(Transform objectTransform, Bounds objectBounds)
         {
             var camHalfHeight = _camera.orthographicSize;

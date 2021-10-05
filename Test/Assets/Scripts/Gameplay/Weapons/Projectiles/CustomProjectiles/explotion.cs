@@ -10,7 +10,7 @@ namespace Gameplay.Weapons.Projectiles
         {
             transform.Translate(Vector3.zero);
         }
-
+        // раюотает так же как обычный патрон, но во всей области взрыва, пока он сущкствует.
         private void OnCollisionEnter2D(Collision2D other)
         {
             var damagableObject = other.gameObject.GetComponent<IDamagable>();
@@ -21,7 +21,7 @@ namespace Gameplay.Weapons.Projectiles
 
                 damagableObject.ApplyDamage(this);
 
-
+                // начинает отсчет до уничтожения взрыва
                 StartCoroutine(waitBeforeStop());
 
             }
